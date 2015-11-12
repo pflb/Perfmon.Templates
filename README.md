@@ -12,4 +12,4 @@ script.bat 36000 120
 
 Также для удобства будут добавлены bat-файлы для удаления групп из Perfmon'a и повторного импорта их из шаблонов (delete_groups.bat и import_groups.bat).
 
-Файлы логов хранятся в %systemdrive%\PerfLogs\Admin\.
+Файлы логов хранятся в %systemdrive%\PerfLogs\Admin\ (в форматах csv и blg).
