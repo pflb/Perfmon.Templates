@@ -14,7 +14,7 @@
 	<LatestOutputLocation>
 	</LatestOutputLocation>
 	<Name>Application.NetworkInterface</Name>
-	<OutputLocation>C:\PerfLogs\Admin\Application.NetworkInterface\Z50-70-8211_20151110-000001</OutputLocation>
+	<OutputLocation>C:\PerfLogs\Admin\Application.NetworkInterface\Z50-70-8211_20151110_171717-000001</OutputLocation>
 	<RootPath>%systemdrive%\PerfLogs\Admin\Application.NetworkInterface</RootPath>
 	<Segment>0</Segment>
 	<SegmentMaxDuration>0</SegmentMaxDuration>
@@ -25,7 +25,7 @@
 	<Subdirectory>
 	</Subdirectory>
 	<SubdirectoryFormat>3</SubdirectoryFormat>
-	<SubdirectoryFormatPattern>yyyyMMdd\-NNNNNN</SubdirectoryFormatPattern>
+	<SubdirectoryFormatPattern>yyyyMMdd\_HHmmss\-NNNNNN</SubdirectoryFormatPattern>
 	<Task>
 	</Task>
 	<TaskRunAsSelf>0</TaskRunAsSelf>
