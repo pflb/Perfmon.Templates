@@ -1,22 +1,12 @@
 @echo OFF
 
-set duration=%1
-set sampleInterval=%2
+@setlocal enableextensions
+@cd /d "%~dp0"
+
+set /p duration="Enter duration (sec): "
+set /p sampleInterval="Enter sample interval (sec): "
 
 set folderName=%duration%_%sampleInterval%
-
-
-if [%1] == [] (
-	echo Please rerun script with 2 parameters: duration and sample interval.
-	pause
-	exit /B 1
-)
-if [%2] == [] (
-	echo Please rerun script with 2 parameters: duration and sample interval.
-	pause
-	exit /B 1
-)   
-
 
 md %cd%\%folderName% > nul 2>&1
 
@@ -27,7 +17,8 @@ break > %stopFile%
 set deleteFile=%cd%\%folderName%\%folderName%_delete_groups.bat
 break > %deleteFile%
 set importFile=%cd%\%folderName%\%folderName%_import_groups.bat
-break > %importFile%
+echo @setlocal enableextensions > %importFile%
+echo @cd /d "%~dp0%folderName%\" >> %importFile%
 
 set file[0]=Application.Memory
 set file[1]=Application.NetworkInterface
