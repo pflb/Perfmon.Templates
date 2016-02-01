@@ -1,61 +1,69 @@
 @echo OFF
 
-set duration=%1
-set sampleInterval=%2
+@setlocal enableextensions
+@cd /d "%~dp0"
+
+set outputRoot=%cd%\Output
+md %outputRoot% > nul 2>&1
+set templatesRoot=%cd%\Templates
+
+:templateLabel
+set /p template="Enter template (eg. 'Application'): "
+if not exist %templatesRoot%\%template% (
+	echo Template does not exist, try again!
+	goto templateLabel
+) 
+:durationLabel
+set /p duration="Enter duration (sec): "
+echo %duration%| findstr /r "^[1-9][0-9]*$">nul
+if errorlevel 1 (
+	echo Duration value is not valid, try again!
+	goto durationLabel
+)
+:sampleIntervalLabel
+set /p sampleInterval="Enter sample interval (sec): "
+echo %sampleInterval%| findstr /r "^[1-9][0-9]*$">nul
+if errorlevel 1 (
+	echo Sample interval value is not valid, try again!
+	goto sampleIntervalLabel
+)
 
 set folderName=%duration%_%sampleInterval%
 
+md %outputRoot%\%template%_%folderName% > nul 2>&1
 
-if [%1] == [] (
-	echo Please rerun script with 2 parameters: duration and sample interval.
-	pause
-	exit /B 1
-)
-if [%2] == [] (
-	echo Please rerun script with 2 parameters: duration and sample interval.
-	pause
-	exit /B 1
-)   
-
-
-md %cd%\%folderName% > nul 2>&1
-
-set startFile=%cd%\%folderName%\%folderName%_start.bat
+set startFile=%outputRoot%\%template%_%folderName%\start.bat
 break > %startFile%
-set stopFile=%cd%\%folderName%\%folderName%_stop.bat
+set stopFile=%outputRoot%\%template%_%folderName%\stop.bat
 break > %stopFile%
-set deleteFile=%cd%\%folderName%\%folderName%_delete_groups.bat
+set deleteFile=%outputRoot%\%template%_%folderName%\delete_groups.bat
 break > %deleteFile%
-set importFile=%cd%\%folderName%\%folderName%_import_groups.bat
-break > %importFile%
-
-set file[0]=Application.Memory
-set file[1]=Application.NetworkInterface
-set file[2]=Application.PhysicalDisk
-set file[3]=Application.Process
-set file[4]=Application.Processor
-set file[5]=Application.System
+set importFile=%outputRoot%\%template%_%folderName%\import_groups.bat
+echo @setlocal enableextensions > %importFile%
+echo @cd /d "%outputRoot%\%template%_%folderName%\" >> %importFile%
 
 setlocal enabledelayedexpansion
-for /l %%n in (0,1,5) do (
-	
-	set outputFile=%folderName%\%folderName%.!file[%%n]!.xml
+
+for /f %%f in ('dir /b %templatesRoot%\%template%') do (
+
+	set outputFile=%outputRoot%\%template%_%folderName%\%%f
 	break > !outputFile!
 	echo !outputFile! created
 	
-	for /F "delims=" %%G in (Templates\!file[%%n]!.xml) do (
+	for /F "delims=" %%G in (%templatesRoot%\%template%\%%f) do (
 		set LINE=%%G
 		set LINE=!LINE:^<Duration^>#####^</Duration^>=^<Duration^>%duration%^</Duration^>!
 		set LINE=!LINE:^<SampleInterval^>#####^</SampleInterval^>=^<SampleInterval^>%sampleInterval%^</SampleInterval^>!
 		echo !LINE! >> !outputFile!
 	) 
 	
-	logman delete %folderName%.!file[%%n]! > nul
-	logman import -name %folderName%.!file[%%n]! -xml !outputFile!
+	logman delete %folderName%.%%~nf > nul
+	logman import -name %folderName%.%%~nf -xml !outputFile!
 	
-	echo logman start %folderName%.!file[%%n]! >> !startFile!
-	echo logman stop %folderName%.!file[%%n]! >> !stopFile!
-	echo logman delete %folderName%.!file[%%n]! >> !deleteFile!
-	echo logman import -name %folderName%.!file[%%n]! -xml %folderName%.!file[%%n]!.xml >> !importFile!
+	echo logman start %folderName%.%%~nf >> !startFile!
+	echo logman stop %folderName%.%%~nf >> !stopFile!
+	echo logman delete %folderName%.%%~nf >> !deleteFile!
+	echo logman import -name %folderName%.%%~nf -xml %%f >> !importFile!
 )
+
 endlocal
