@@ -13,9 +13,9 @@
 	<SchedulesEnabled>-1</SchedulesEnabled>
 	<LatestOutputLocation>
 	</LatestOutputLocation>
-	<Name>asupr_counters_MyHistorian</Name>
-	<OutputLocation>C:\PerfLogs\Admin\asupr_counters_MyHistorian\Z50-70-8211_20151116_171717-000001</OutputLocation>
-	<RootPath>%systemdrive%\PerfLogs\Admin\asupr_counters_MyHistorian</RootPath>
+	<Name>ASUPR.Emulators</Name>
+	<OutputLocation>C:\PerfLogs\Admin\asupr_counters_Emulators\Z50-70-8211_20151116_171717-000001</OutputLocation>
+	<RootPath>%systemdrive%\PerfLogs\Admin\</RootPath>
 	<Segment>0</Segment>
 	<SegmentMaxDuration>0</SegmentMaxDuration>
 	<SegmentMaxSize>0</SegmentMaxSize>
@@ -25,7 +25,7 @@
 	<Subdirectory>
 	</Subdirectory>
 	<SubdirectoryFormat>3</SubdirectoryFormat>
-	<SubdirectoryFormatPattern>yyyyMMdd\_HHmmss\-NNNNNN</SubdirectoryFormatPattern>
+	<SubdirectoryFormatPattern>yyyyMMdd\_HHmm</SubdirectoryFormatPattern>
 	<Task>
 	</Task>
 	<TaskRunAsSelf>0</TaskRunAsSelf>
@@ -38,8 +38,8 @@
 	<StopOnCompletion>0</StopOnCompletion>
 	<PerformanceCounterDataCollector>
 		<DataCollectorType>0</DataCollectorType>
-		<Name>asupr_counters_MyHistorian(csv)</Name>
-		<FileName>asupr_counters_MyHistorian</FileName>
+		<Name>ASUPR.Emulators(csv)</Name>
+		<FileName>ASUPR.Emulators</FileName>
 		<FileNameFormat>0</FileNameFormat>
 		<FileNameFormatPattern>
 		</FileNameFormatPattern>
@@ -53,12 +53,12 @@
 		<SampleInterval>#####</SampleInterval>
 		<SegmentMaxRecords>0</SegmentMaxRecords>
 		<LogFileFormat>0</LogFileFormat>
-		<Counter>\asupr_counters_MyHistorian\*</Counter>
+		<Counter>\asupr_counters_Emulators\*</Counter>
 	</PerformanceCounterDataCollector>
 	<PerformanceCounterDataCollector>
 		<DataCollectorType>0</DataCollectorType>
-		<Name>asupr_counters_MyHistorian(blg)</Name>
-		<FileName>asupr_counters_MyHistorian</FileName>
+		<Name>ASUPR.Emulators(blg)</Name>
+		<FileName>ASUPR.Emulators</FileName>
 		<FileNameFormat>0</FileNameFormat>
 		<FileNameFormatPattern>
 		</FileNameFormatPattern>
@@ -72,7 +72,7 @@
 		<SampleInterval>#####</SampleInterval>
 		<SegmentMaxRecords>0</SegmentMaxRecords>
 		<LogFileFormat>3</LogFileFormat>
-		<Counter>\asupr_counters_MyHistorian\*</Counter>
+		<Counter>\asupr_counters_Emulators\*</Counter>
 	</PerformanceCounterDataCollector>
 	<DataManager>
 		<Enabled>0</Enabled>

@@ -13,9 +13,9 @@
 	<SchedulesEnabled>-1</SchedulesEnabled>
 	<LatestOutputLocation>
 	</LatestOutputLocation>
-	<Name>asupr_counters_MyIoManagerListener</Name>
-	<OutputLocation>C:\PerfLogs\Admin\asupr_counters_MyIoManagerListener\Z50-70-8211_20151116_171717-000001</OutputLocation>
-	<RootPath>%systemdrive%\PerfLogs\Admin\asupr_counters_MyIoManagerListener</RootPath>
+	<Name>ASUPR.MyHistorian</Name>
+	<OutputLocation>C:\PerfLogs\Admin\asupr_counters_MyHistorian\Z50-70-8211_20151116_171717-000001</OutputLocation>
+	<RootPath>%systemdrive%\PerfLogs\Admin</RootPath>
 	<Segment>0</Segment>
 	<SegmentMaxDuration>0</SegmentMaxDuration>
 	<SegmentMaxSize>0</SegmentMaxSize>
@@ -25,7 +25,7 @@
 	<Subdirectory>
 	</Subdirectory>
 	<SubdirectoryFormat>3</SubdirectoryFormat>
-	<SubdirectoryFormatPattern>yyyyMMdd\_HHmmss\-NNNNNN</SubdirectoryFormatPattern>
+	<SubdirectoryFormatPattern>yyyyMMdd\_HHmm</SubdirectoryFormatPattern>
 	<Task>
 	</Task>
 	<TaskRunAsSelf>0</TaskRunAsSelf>
@@ -38,8 +38,8 @@
 	<StopOnCompletion>0</StopOnCompletion>
 	<PerformanceCounterDataCollector>
 		<DataCollectorType>0</DataCollectorType>
-		<Name>asupr_counters_MyIoManagerListener(csv)</Name>
-		<FileName>asupr_counters_MyIoManagerListener</FileName>
+		<Name>ASUPR.MyHistorian(csv)</Name>
+		<FileName>ASUPR.MyHistorian</FileName>
 		<FileNameFormat>0</FileNameFormat>
 		<FileNameFormatPattern>
 		</FileNameFormatPattern>
@@ -53,12 +53,12 @@
 		<SampleInterval>#####</SampleInterval>
 		<SegmentMaxRecords>0</SegmentMaxRecords>
 		<LogFileFormat>0</LogFileFormat>
-		<Counter>\asupr_counters_MyIoManagerListener\*</Counter>
+		<Counter>\asupr_counters_MyHistorian\*</Counter>
 	</PerformanceCounterDataCollector>
 	<PerformanceCounterDataCollector>
 		<DataCollectorType>0</DataCollectorType>
-		<Name>asupr_counters_MyIoManagerListener(blg)</Name>
-		<FileName>asupr_counters_MyIoManagerListener</FileName>
+		<Name>ASUPR.MyHistorian(blg)</Name>
+		<FileName>ASUPR.MyHistorian</FileName>
 		<FileNameFormat>0</FileNameFormat>
 		<FileNameFormatPattern>
 		</FileNameFormatPattern>
@@ -72,7 +72,7 @@
 		<SampleInterval>#####</SampleInterval>
 		<SegmentMaxRecords>0</SegmentMaxRecords>
 		<LogFileFormat>3</LogFileFormat>
-		<Counter>\asupr_counters_MyIoManagerListener\*</Counter>
+		<Counter>\asupr_counters_MyHistorian\*</Counter>
 	</PerformanceCounterDataCollector>
 	<DataManager>
 		<Enabled>0</Enabled>

@@ -15,7 +15,7 @@
 	</LatestOutputLocation>
 	<Name>Application.PhysicalDisk</Name>
 	<OutputLocation>C:\PerfLogs\Admin\Application.PhysicalDisk\Z50-70-8211_20151110_171717-000001</OutputLocation>
-	<RootPath>%systemdrive%\PerfLogs\Admin\Application.PhysicalDisk</RootPath>
+	<RootPath>%systemdrive%\PerfLogs\Admin</RootPath>
 	<Segment>0</Segment>
 	<SegmentMaxDuration>0</SegmentMaxDuration>
 	<SegmentMaxSize>0</SegmentMaxSize>
@@ -25,7 +25,7 @@
 	<Subdirectory>
 	</Subdirectory>
 	<SubdirectoryFormat>3</SubdirectoryFormat>
-	<SubdirectoryFormatPattern>yyyyMMdd\_HHmmss\-NNNNNN</SubdirectoryFormatPattern>
+	<SubdirectoryFormatPattern>yyyyMMdd\_HHmm</SubdirectoryFormatPattern>
 	<Task>
 	</Task>
 	<TaskRunAsSelf>0</TaskRunAsSelf>
