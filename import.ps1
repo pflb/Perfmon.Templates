@@ -1,4 +1,7 @@
-$templates = "Application.Memory", "Application.NetworkInterface", "Application.PhysicalDisk", "Application.Process", "Application.Processor", "Application.System"
+Function StartApp
+{
+Add-Type -AssemblyName System.Windows.Forms
+$templates = "Application.Memory", "Application.NetworkInterface", "Application.PhysicalDisk", "Application.Process", "Application.Processor", "Application.System", "ASUPR.Emulators", "ASUPR.MyHistorian"
 
 $Duration = 3600
 $SampleInterval = 30
@@ -48,7 +51,7 @@ $TemplatesPathLabel.Autosize     = 1
 
 $TemplatesPathTextBox.Location       = New-Object System.Drawing.Point(100,70)
 $TemplatesPathTextBox.Text           = $TemplatesPath
-$TemplatesPathTextBox.add_TextChanged( { $SampleInterval = $TemplatesPathTextBox.Text })
+$TemplatesPathTextBox.add_TextChanged( { $TemplatesPath = $TemplatesPathTextBox.Text })
 $TemplatesPathTextBox.Width          = 300
 $TemplatesPathTextBox.TabIndex       = 2
 
@@ -89,6 +92,8 @@ $Win.Controls.Add($WinDeleteButton)
 
 $Win.ShowDialog() | Out-Null
 
+}
+
 Function ImportDataSet {
     
     foreach ($template in $templates)
@@ -103,6 +108,12 @@ Function ImportDataSet {
         $datacollectorset.SetXml($xml)
         $datacollectorset.Commit($template , $null , 0x0003) 
     }
+}
+
+Function GetXmlFilesFromPath($BasePath) {
+    Get-ChildItem $BasePath -recurse | 
+        Where-Object {(($_.PSIsContainer -eq $false) -or (($_.PSIsContainer -eq $true) -and ($_.GetFiles().Count -gt 0)))} | 
+        Select-Object FullName
 }
 
 Function StartDataSet {
@@ -134,3 +145,5 @@ Function DeleteDataSet {
         $datacollectorset.delete
     }
 }
+
+StartApp;
