@@ -34,11 +34,33 @@
 	<TaskUserTextArguments>
 	</TaskUserTextArguments>
 	<UserAccount>система</UserAccount>
-	<Security>O:BAG:S-1-5-21-2304571017-2565705552-2870608758-513D:AI(A;;FA;;;SY)(A;;FA;;;BA)(A;;FR;;;LU)(A;;0x1301ff;;;S-1-5-80-2661322625-712705077-2999183737-3043590567-590698655)(A;ID;FA;;;SY)(A;ID;FA;;;BA)(A;ID;0x1200ab;;;LU)(A;ID;FR;;;AU)(A;ID;FR;;;LS)(A;ID;FR;;;NS)</Security>
+	<Security>O:BAG:S-1-5-21-3613292253-2698039953-3458479019-513D:AI(A;;FA;;;SY)(A;;FA;;;BA)(A;;FR;;;LU)(A;;0x1301ff;;;S-1-5-80-2661322625-712705077-2999183737-3043590567-590698655)(A;ID;FA;;;SY)(A;ID;FA;;;BA)(A;ID;0x1200ab;;;LU)(A;ID;FR;;;AU)(A;ID;FR;;;LS)(A;ID;FR;;;NS)</Security>
 	<StopOnCompletion>0</StopOnCompletion>
 	<PerformanceCounterDataCollector>
 		<DataCollectorType>0</DataCollectorType>
-		<Name>Application.System</Name>
+		<Name>Application.System(csv)</Name>
+		<FileName>Application.System</FileName>
+		<FileNameFormat>0</FileNameFormat>
+		<FileNameFormatPattern>
+		</FileNameFormatPattern>
+		<LogAppend>0</LogAppend>
+		<LogCircular>0</LogCircular>
+		<LogOverwrite>0</LogOverwrite>
+		<LatestOutputLocation>
+		</LatestOutputLocation>
+		<DataSourceName>
+		</DataSourceName>
+		<SampleInterval>#####</SampleInterval>
+		<SegmentMaxRecords>0</SegmentMaxRecords>
+		<LogFileFormat>0</LogFileFormat>
+		<Counter>\System\Context Switches/sec</Counter>
+		<Counter>\System\Processes</Counter>
+		<Counter>\System\Processor Queue Length</Counter>
+		<Counter>\System\Threads</Counter>
+	</PerformanceCounterDataCollector>
+	<PerformanceCounterDataCollector>
+		<DataCollectorType>0</DataCollectorType>
+		<Name>Application.System(blg)</Name>
 		<FileName>Application.System</FileName>
 		<FileNameFormat>0</FileNameFormat>
 		<FileNameFormatPattern>
@@ -57,10 +79,6 @@
 		<Counter>\System\Processes</Counter>
 		<Counter>\System\Processor Queue Length</Counter>
 		<Counter>\System\Threads</Counter>
-		<CounterDisplayName>\System\Context Switches/sec</CounterDisplayName>
-		<CounterDisplayName>\System\Processes</CounterDisplayName>
-		<CounterDisplayName>\System\Processor Queue Length</CounterDisplayName>
-		<CounterDisplayName>\System\Threads</CounterDisplayName>
 	</PerformanceCounterDataCollector>
 	<DataManager>
 		<Enabled>0</Enabled>

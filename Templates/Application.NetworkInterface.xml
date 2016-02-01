@@ -34,11 +34,36 @@
 	<TaskUserTextArguments>
 	</TaskUserTextArguments>
 	<UserAccount>система</UserAccount>
-	<Security>O:BAG:S-1-5-21-2304571017-2565705552-2870608758-513D:AI(A;;FA;;;SY)(A;;FA;;;BA)(A;;FR;;;LU)(A;;0x1301ff;;;S-1-5-80-2661322625-712705077-2999183737-3043590567-590698655)(A;ID;FA;;;SY)(A;ID;FA;;;BA)(A;ID;0x1200ab;;;LU)(A;ID;FR;;;AU)(A;ID;FR;;;LS)(A;ID;FR;;;NS)</Security>
+	<Security>O:BAG:S-1-5-21-3613292253-2698039953-3458479019-513D:AI(A;;FA;;;SY)(A;;FA;;;BA)(A;;FR;;;LU)(A;;0x1301ff;;;S-1-5-80-2661322625-712705077-2999183737-3043590567-590698655)(A;ID;FA;;;SY)(A;ID;FA;;;BA)(A;ID;0x1200ab;;;LU)(A;ID;FR;;;AU)(A;ID;FR;;;LS)(A;ID;FR;;;NS)</Security>
 	<StopOnCompletion>0</StopOnCompletion>
 	<PerformanceCounterDataCollector>
 		<DataCollectorType>0</DataCollectorType>
-		<Name>Application.NetworkInterface</Name>
+		<Name>Application.NetworkInterface(csv)</Name>
+		<FileName>Application.NetworkInterface</FileName>
+		<FileNameFormat>0</FileNameFormat>
+		<FileNameFormatPattern>
+		</FileNameFormatPattern>
+		<LogAppend>0</LogAppend>
+		<LogCircular>0</LogCircular>
+		<LogOverwrite>0</LogOverwrite>
+		<LatestOutputLocation>
+		</LatestOutputLocation>
+		<DataSourceName>
+		</DataSourceName>
+		<SampleInterval>#####</SampleInterval>
+		<SegmentMaxRecords>0</SegmentMaxRecords>
+		<LogFileFormat>0</LogFileFormat>
+		<Counter>\Network Interface(*)\Bytes Received/sec</Counter>
+		<Counter>\Network Interface(*)\Bytes Sent/sec</Counter>
+		<Counter>\Network Interface(*)\Output Queue Length</Counter>
+		<Counter>\Network Interface(*)\Packets Received/sec</Counter>
+		<Counter>\Network Interface(*)\Packets Sent/sec</Counter>
+		<Counter>\Network Interface(*)\Current Bandwidth</Counter>
+		<Counter>\Network Interface(*)\Bytes Total/sec</Counter>
+	</PerformanceCounterDataCollector>
+	<PerformanceCounterDataCollector>
+		<DataCollectorType>0</DataCollectorType>
+		<Name>Application.NetworkInterface(blg)</Name>
 		<FileName>Application.NetworkInterface</FileName>
 		<FileNameFormat>0</FileNameFormat>
 		<FileNameFormatPattern>
@@ -60,13 +85,6 @@
 		<Counter>\Network Interface(*)\Packets Sent/sec</Counter>
 		<Counter>\Network Interface(*)\Current Bandwidth</Counter>
 		<Counter>\Network Interface(*)\Bytes Total/sec</Counter>
-		<CounterDisplayName>\Network Interface(*)\Bytes Received/sec</CounterDisplayName>
-		<CounterDisplayName>\Network Interface(*)\Bytes Sent/sec</CounterDisplayName>
-		<CounterDisplayName>\Network Interface(*)\Output Queue Length</CounterDisplayName>
-		<CounterDisplayName>\Network Interface(*)\Packets Received/sec</CounterDisplayName>
-		<CounterDisplayName>\Network Interface(*)\Packets Sent/sec</CounterDisplayName>
-		<CounterDisplayName>\Network Interface(*)\Current Bandwidth</CounterDisplayName>
-		<CounterDisplayName>\Network Interface(*)\Bytes Total/sec</CounterDisplayName>
 	</PerformanceCounterDataCollector>
 	<DataManager>
 		<Enabled>0</Enabled>

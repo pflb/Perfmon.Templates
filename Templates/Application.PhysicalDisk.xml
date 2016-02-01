@@ -34,11 +34,50 @@
 	<TaskUserTextArguments>
 	</TaskUserTextArguments>
 	<UserAccount>система</UserAccount>
-	<Security>O:BAG:S-1-5-21-2304571017-2565705552-2870608758-513D:AI(A;;FA;;;SY)(A;;FA;;;BA)(A;;FR;;;LU)(A;;0x1301ff;;;S-1-5-80-2661322625-712705077-2999183737-3043590567-590698655)(A;ID;FA;;;SY)(A;ID;FA;;;BA)(A;ID;0x1200ab;;;LU)(A;ID;FR;;;AU)(A;ID;FR;;;LS)(A;ID;FR;;;NS)</Security>
+	<Security>O:BAG:S-1-5-21-3613292253-2698039953-3458479019-513D:AI(A;;FA;;;SY)(A;;FA;;;BA)(A;;FR;;;LU)(A;;0x1301ff;;;S-1-5-80-2661322625-712705077-2999183737-3043590567-590698655)(A;ID;FA;;;SY)(A;ID;FA;;;BA)(A;ID;0x1200ab;;;LU)(A;ID;FR;;;AU)(A;ID;FR;;;LS)(A;ID;FR;;;NS)</Security>
 	<StopOnCompletion>0</StopOnCompletion>
 	<PerformanceCounterDataCollector>
 		<DataCollectorType>0</DataCollectorType>
-		<Name>Application.PhysicalDisk</Name>
+		<Name>Application.PhysicalDisk(csv)</Name>
+		<FileName>Application.PhysicalDisk</FileName>
+		<FileNameFormat>0</FileNameFormat>
+		<FileNameFormatPattern>
+		</FileNameFormatPattern>
+		<LogAppend>0</LogAppend>
+		<LogCircular>0</LogCircular>
+		<LogOverwrite>0</LogOverwrite>
+		<LatestOutputLocation>
+		</LatestOutputLocation>
+		<DataSourceName>
+		</DataSourceName>
+		<SampleInterval>#####</SampleInterval>
+		<SegmentMaxRecords>0</SegmentMaxRecords>
+		<LogFileFormat>0</LogFileFormat>
+		<Counter>\PhysicalDisk\% Disk Read Time</Counter>
+		<Counter>\PhysicalDisk(_Total)\% Disk Time</Counter>
+		<Counter>\PhysicalDisk(_Total)\% Disk Write Time</Counter>
+		<Counter>\PhysicalDisk(_Total)\% Idle Time</Counter>
+		<Counter>\PhysicalDisk(_Total)\Avg. Disk Bytes/Read</Counter>
+		<Counter>\PhysicalDisk(_Total)\Avg. Disk Bytes/Transfer</Counter>
+		<Counter>\PhysicalDisk(_Total)\Avg. Disk Bytes/Write</Counter>
+		<Counter>\PhysicalDisk(_Total)\Avg. Disk Queue Length</Counter>
+		<Counter>\PhysicalDisk(_Total)\Avg. Disk Read Queue Length</Counter>
+		<Counter>\PhysicalDisk(_Total)\Avg. Disk Write Queue Length</Counter>
+		<Counter>\PhysicalDisk(_Total)\Current Disk Queue Length</Counter>
+		<Counter>\PhysicalDisk(_Total)\Avg. Disk sec/Read</Counter>
+		<Counter>\PhysicalDisk(_Total)\Avg. Disk sec/Transfer</Counter>
+		<Counter>\PhysicalDisk(_Total)\Avg. Disk sec/Write</Counter>
+		<Counter>\PhysicalDisk(_Total)\Disk Bytes/sec</Counter>
+		<Counter>\PhysicalDisk(_Total)\Disk Read Bytes/sec</Counter>
+		<Counter>\PhysicalDisk(_Total)\Disk Reads/sec</Counter>
+		<Counter>\PhysicalDisk(_Total)\Disk Transfers/sec</Counter>
+		<Counter>\PhysicalDisk(_Total)\Disk Write Bytes/sec</Counter>
+		<Counter>\PhysicalDisk(_Total)\Disk Writes/sec</Counter>
+		<Counter>\PhysicalDisk(_Total)\Split IO/Sec</Counter>
+	</PerformanceCounterDataCollector>
+	<PerformanceCounterDataCollector>
+		<DataCollectorType>0</DataCollectorType>
+		<Name>Application.PhysicalDisk(blg)</Name>
 		<FileName>Application.PhysicalDisk</FileName>
 		<FileNameFormat>0</FileNameFormat>
 		<FileNameFormatPattern>
@@ -74,27 +113,6 @@
 		<Counter>\PhysicalDisk(_Total)\Disk Write Bytes/sec</Counter>
 		<Counter>\PhysicalDisk(_Total)\Disk Writes/sec</Counter>
 		<Counter>\PhysicalDisk(_Total)\Split IO/Sec</Counter>
-		<CounterDisplayName>\PhysicalDisk\% Disk Read Time</CounterDisplayName>
-		<CounterDisplayName>\PhysicalDisk(_Total)\% Disk Time</CounterDisplayName>
-		<CounterDisplayName>\PhysicalDisk(_Total)\% Disk Write Time</CounterDisplayName>
-		<CounterDisplayName>\PhysicalDisk(_Total)\% Idle Time</CounterDisplayName>
-		<CounterDisplayName>\PhysicalDisk(_Total)\Avg. Disk Bytes/Read</CounterDisplayName>
-		<CounterDisplayName>\PhysicalDisk(_Total)\Avg. Disk Bytes/Transfer</CounterDisplayName>
-		<CounterDisplayName>\PhysicalDisk(_Total)\Avg. Disk Bytes/Write</CounterDisplayName>
-		<CounterDisplayName>\PhysicalDisk(_Total)\Avg. Disk Queue Length</CounterDisplayName>
-		<CounterDisplayName>\PhysicalDisk(_Total)\Avg. Disk Read Queue Length</CounterDisplayName>
-		<CounterDisplayName>\PhysicalDisk(_Total)\Avg. Disk Write Queue Length</CounterDisplayName>
-		<CounterDisplayName>\PhysicalDisk(_Total)\Current Disk Queue Length</CounterDisplayName>
-		<CounterDisplayName>\PhysicalDisk(_Total)\Avg. Disk sec/Read</CounterDisplayName>
-		<CounterDisplayName>\PhysicalDisk(_Total)\Avg. Disk sec/Transfer</CounterDisplayName>
-		<CounterDisplayName>\PhysicalDisk(_Total)\Avg. Disk sec/Write</CounterDisplayName>
-		<CounterDisplayName>\PhysicalDisk(_Total)\Disk Bytes/sec</CounterDisplayName>
-		<CounterDisplayName>\PhysicalDisk(_Total)\Disk Read Bytes/sec</CounterDisplayName>
-		<CounterDisplayName>\PhysicalDisk(_Total)\Disk Reads/sec</CounterDisplayName>
-		<CounterDisplayName>\PhysicalDisk(_Total)\Disk Transfers/sec</CounterDisplayName>
-		<CounterDisplayName>\PhysicalDisk(_Total)\Disk Write Bytes/sec</CounterDisplayName>
-		<CounterDisplayName>\PhysicalDisk(_Total)\Disk Writes/sec</CounterDisplayName>
-		<CounterDisplayName>\PhysicalDisk(_Total)\Split IO/Sec</CounterDisplayName>
 	</PerformanceCounterDataCollector>
 	<DataManager>
 		<Enabled>0</Enabled>
