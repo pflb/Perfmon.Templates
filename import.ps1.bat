@@ -1,3 +1,3 @@
 setlocal
 cd /d %~dp0
-powershell ./import.ps1
+powershell -ExecutionPolicy UnRestricted ./import.ps1
