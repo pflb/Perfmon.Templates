@@ -1,67 +1,56 @@
-# Приложение для автоматического создания групп сборщиков данных счетчиков производительности из шаблонов
+#Application for automatic creations of data collector croups, performance counters from templates
 
 ---
+###Instruction
 
-### __Алгоритм работы приложения__
+1. Run the `import.ps1.bat` file as an administrator.
+2. Enter the following parameters:
+    - Duration - *total duration*.
+    - Sample interval - *sampling interval*.
+    - Template Path - *path to the folder with templates*.
+3. Click the `Импорт` button to import groups of data collectors into Perfmon.
+4. Click the `Старт` button to run groups.
 
+If you need to stop groups of data collectors, click the `Стоп` button.
 
-1. Запустить от имени администратора файл import.ps1.bat
+To remove groups of data collectors, click the `Удалить` button. You can re-import them by clicking the `Импорт` button.
 
-2. Ввести следующие параметры: общую длительность (Duration), интервал выборки (Sample interval), путь к папке с шаблонами (Templates Path).
+Data collector groups logs and error reports are saved according to the template settings 
+(By default, in `%systemdrive%\PerfLogs\Admin`).
 
-3. Нажать кнопку "Импорт" для импорта групп сборщиков данных в Perfmon.
+###Creating data collector group template
+Data collector groups are created on the basis of templates. Example of templates are in the `Templates` folder at the
+root of the project.
 
-4. Нажать кнопу "Старт" для запуска этих групп.
+Templates are *.xml files with a specific structure.
 
-В случае необходимости досрочной остановки работы групп сборщиков данных нажать кнопку "Стоп".
-
-Для удаления групп сборщиков данных из Perfmon нажать кнопку "Удалить". В дальнейшем с помощью кнопки "Импорт" можно их повторно импортировать.
-
-Логи работы групп сборщиков данных и отчеты об ошибках сохраняются в соответствии с настройками шаблона (по умолчанию, в %systemdrive%\PerfLogs\Admin). 
-
----
-
-### __Создание шаблонов групп сборщиков данных__
-
-
-Группы сборщиков данных создаются на основе шаблонов. Примеры шаблонов находятся в папке Templates в корне проекта.
-
-Шаблоны - файлы формата *.xml с определенной структурой. 
-
-Ключевыми являются следующие параметры:
-
-- __<?xml version="1.0" encoding="UTF-8"?>__ - файл шаблона должен иметь кодировку UTF-8 без BOM.
-
-- __Duration__ - общая длительность работы группы сборщиков данных. Задается программно, в шаблоне должна быть представлена в виде \<Duration\>#####\</Duration\>.
-
-- __DisplayName__ и __Description__ - отображаемое имя и описание группы.
-
-- __OutputLocation__ - путь для сохранения групп сборщиков данных. Первая часть должна совпадать со значением параметра RootPath.
-
-- __RootPath__ - корневой путь. Рекомендуется использовать значение _%systemdrive%\PerfLogs\Admin_.
-
-- __SubdirectoryFormat__ и __SubdirectoryFormatPattern__ - формат названия папки группы. Название конечной папки из OutputLocation должно соответствовать этому формату. Рекомендуется использовать значения _3_ и _yyyyMMdd\_HHmm_ соответственно.
-
-- __UserAccount__ - имя пользователя.
-		
-- __PerformanceCounterDataCollector__ - блок, отвечающий за параметры конкретного сборщика данных. Таких блоков может быть несколько, если необходимо использовать один и тот же сборщик с разными параметрами. 
-
-    Из важных полей данного блока можно перечислить следующие:
-
-	* __Name__ - отображаемое имя сборщика данных в Perfmon.
-		
-	* __FileName__ - имя файла лога сборщика на жестком диске. Задается без расширения (оно указывается в LogFileFormat).
-		
-	* __SampleInterval__ - интервал выборки. Задается программно, в шаблоне должен быть представлен в виде \<SampleInterval\>#####\</SampleInterval\>.
-		
-	* __LogFileFormat__ - формат файла лога сборщика на жестком диске. Допустимые значения: 0 - csv, 1 - tsv, 2 - sql, 3 - blg (двоичный).
-		
-	* __Counter__ - название счетчика производительности, входящего в сборщик данных (напр., _\Memory\% Committed Bytes In Use_). Допустимо использовать названия счетчиков на английском языке и на родной локали системы. Полей Counter может быть несколько для разных счетчиков (но не рекомендуется включать большое количество счетчиков в один сборщик во избежание проблем с производительностью).
-
-	* __DataManager__ - опциональный блок, необходимый для создания отчета об ощибках работы группы сборщиков данных. Ключевые поля:
-
-	* __Enabled__ - для создания отчета выставить значение _1_.
-		
-	* __ReportFileName__ и __RuleTargetFileName__ - названия файла отчета.
-
-В дальнейшем (после импорта шаблонов) значения параметров сборщиков данных можно будет изменить в Perfmon'е.
+The key parameters are the following:
+- Template *file must have a* UTF-8 *encoding without* BOM.
+- Duration - *is programmatically, the template should be presented as* `<Duration>#####</Duration>`.
+- DisplayName and Description - *displayed group name and description* 
+- OutputLocation - *is the path to save groups of data collectors. The first part should match the value of the* RootPath
+*parameter*.
+- RootPath - *is the root path. It is recommended to use the value of* `%systemdrive%\PerfLogs\Admin`.
+- SubdirectoryFormat and SubdirectoryFormatPattern - *are the format of the group folder name. The name of the final 
+folder from* OutputLocation *must match this format. It is recommended to use the value of 3 and yyyyMMdd_HHmm, respectively*.
+- UserAccount - *is a username*.
+- PerformanceCounterDataCollector - *is the block responsible for the parameters of a particular data collector. There 
+can be several such blocks if you need to use the same assembler with different parameters*.
+   
+   The following can be listed from the important fields of this block:
+  - Name - *is the display name of the data collector in Perfmon*.
+  - FIleName - *is the name of the collector log file on the hard disk. Specified without an extension* (*it is specified
+    in* LogFileFormat).
+  - SampleInterval - *is the sample interval. Is set programmatically, the template should be presented as* 
+    `<SampleInterval\>#####\</SampleInterval\>`.
+  - LogFileFormat - *is the format of the collector log file on your hard drive. Valid values: 0 - csv, 1 - tsv, 3 - blg
+    (binary)*.
+  - Counter - *is the name of the performance counter included in the data collector (e.g., \Memory% Committed Bytes in 
+    Use). It is permissible to use the names of counters on English and on the native local of the system. There may be 
+    several* Counter *fields for different counters (but it is not recommended to include a large number of counters in 
+    the same collector to avoid performance problems)*.
+  - DataManager - *is an optional block needed to create a data collector group plucking report*. Key fields:
+      - Enable - *set the value to* `1` *to create report*.  
+      - ReportFileName and RuleTargetFileName - *report file names*.
+  
+In the future (after importing templates), the value of data collector parameters can be changed in Perfmon.
