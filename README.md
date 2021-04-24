@@ -1,7 +1,7 @@
-#Application for automatic creations of data collector croups, performance counters from templates
+# Application for automatic creations of data collector croups, performance counters from templates
 
----
-###Instruction
+
+### Instruction
 
 1. Run the `import.ps1.bat` file as an administrator.
 2. Enter the following parameters:
